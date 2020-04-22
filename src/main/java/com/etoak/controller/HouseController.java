@@ -9,5 +9,6 @@ public class HouseController {
     @RequestMapping("/toAdd")
     public String toAdd(){
         return "house/add";
+
     }
 }
