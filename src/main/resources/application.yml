@@ -21,3 +21,9 @@ mybatis:
 
 pagehelper:
   reasonable: true
+
+# 自定义配置： 文件上传和图片访问配置
+upload:
+  dir: d:/upload/
+  savePathPrefix: /pics/
+  mapping: /pics/**
