@@ -36,6 +36,7 @@ public class HouseController {
     @RequestMapping("/toAdd")
     public String toAdd(){
         return "house/add";
+
     }
     @PostMapping("/add")
     public String add(@RequestParam("file")MultipartFile file, House house) throws Exception {
