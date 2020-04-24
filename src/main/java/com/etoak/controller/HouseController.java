@@ -101,4 +101,16 @@ public class HouseController {
         houseService.updateHouse(house);
         return "redirect:/house/toList";
     }
+
+    /**
+     * 根据id删除房源
+     * @param id
+     * @return
+     */
+    @DeleteMapping("/{id}")
+    public String deleteHouse(@PathVariable("id") int id){
+        log.info("delete id - {}",id);
+        houseService.deleteById(id);
+        return "redirect:/house/toList";
+    }
 }
