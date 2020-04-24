@@ -9,4 +9,6 @@ public interface HouseMapper {
     int addHouse(House house);
 
     List<HouseVo> queryList(HouseVo houseVo);
+
+    int updateHouse(House house);
 }

@@ -13,6 +13,7 @@ import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.ArrayUtils;
+import org.apache.commons.lang3.ObjectUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -55,6 +56,15 @@ public class HouseServiceImpl implements HouseService {
                 pageInfo.getPages());
     }
 
+    @Override
+    public int updateHouse(House house) {
+        if (house.getCity() != null){
+            Area area = areaMapper.queryById(house.getArea());
+            house.setAreaName(area.getName());
+        }
+        return houseMapper.updateHouse(house);
+    }
+
     private void handleRental(HouseVo houseVo,String[] rentalList){
         if(ArrayUtils.isNotEmpty(rentalList)){
             List<Map<String,Integer>> rentalMapList = new ArrayList<>();
@@ -68,4 +78,5 @@ public class HouseServiceImpl implements HouseService {
             houseVo.setRentalMapList(rentalMapList);
         }
     }
+
 }
