@@ -9,4 +9,6 @@ public interface UserService {
      * @return
      */
     int addUser(User user);
+
+    User queryByName(String name);
 }
